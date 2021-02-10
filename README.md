@@ -1,2 +1,2 @@
 # StrategyNeuralNetwork
-Extensible neural network architecture pattern-based strategy
+Extensible neural network architecture based on strategy pattern
