@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StrategyNeuralNetwork", "StrategyNeuralNetwork\StrategyNeuralNetwork.csproj", "{199F500F-7EC2-40E2-8C76-E4D83CB22C0D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestNetwork", "TestNetwork\TestNetwork.csproj", "{3C2770FB-5866-4E2F-BD0B-B906136AEDD2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{199F500F-7EC2-40E2-8C76-E4D83CB22C0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{199F500F-7EC2-40E2-8C76-E4D83CB22C0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{199F500F-7EC2-40E2-8C76-E4D83CB22C0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{199F500F-7EC2-40E2-8C76-E4D83CB22C0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C2770FB-5866-4E2F-BD0B-B906136AEDD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C2770FB-5866-4E2F-BD0B-B906136AEDD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C2770FB-5866-4E2F-BD0B-B906136AEDD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C2770FB-5866-4E2F-BD0B-B906136AEDD2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1EF4E47B-1755-4762-89C2-B8C72FA2901C}
+	EndGlobalSection
+EndGlobal
