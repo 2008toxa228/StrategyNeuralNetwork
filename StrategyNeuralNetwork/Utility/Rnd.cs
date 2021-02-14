@@ -8,7 +8,12 @@ namespace StrategyNeuralNetwork
 {
     public static class Rnd
     {
-        public static System.Random rnd = new System.Random();
+        public static System.Random rnd;
+
+        static Rnd()
+        {
+            rnd = new System.Random(1);
+        }
         public static double GetRand()
         {
             return rnd.NextDouble() * 2 - 1;

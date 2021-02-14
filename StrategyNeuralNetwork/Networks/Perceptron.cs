@@ -37,27 +37,6 @@ namespace StrategyNeuralNetwork
                 if (Bias && i < CountInLayers.Length - 1) neurons[neurons.Length - 1] = new BiasNeuron();
                 Layers[i] = new RegularLayer(neurons);
             }
-
-            /*
-            for(int i = 1; i < CountInLayers.Length-1; i++)
-            {
-                INeuron[] neurons = new INeuron[countInLayers[i] + (Bias && i < CountInLayers.Length-1 ? 1 : 0)];
-                for(int j = 0; j < countInLayers[i]; j++)
-                {
-                    neurons[j] = new RegularNeuron(actFunc ?? ActivationFunctions.Sigmoid);
-                    neurons[j].Initialize(Layers[i-1].Neurons);
-                }
-                if (Bias && i < CountInLayers.Length - 1) neurons[neurons.Length - 1] = new BiasNeuron();
-                Layers[i] = new RegularLayer(neurons);
-            }
-            INeuron[] neurons1 = new INeuron[countInLayers[countInLayers.Length - 1]];
-            for (int j = 0; j < countInLayers[countInLayers.Length - 1]; j++)
-            {
-                neurons1[j] = new RegularNeuron(actFunc ?? ActivationFunctions.Sigmoid);
-                neurons1[j].Initialize(Layers[countInLayers.Length - 2].Neurons);
-            }
-            Layers[countInLayers.Length - 1] = new RegularLayer(neurons1);
-            */
         }
 
         public void SetInputs(double[] inputs)
@@ -99,7 +78,6 @@ namespace StrategyNeuralNetwork
 
         public void BackPropagation(double learnRate)
         {
-            double error = 0;
             for (int i = Layers.Length - 1; i >= 0; i--)
             {
                 INeuron[] neurons = Layers[i].Neurons;
@@ -107,7 +85,6 @@ namespace StrategyNeuralNetwork
                 {
                     neurons[n].PassError();
                     neurons[n].CorrectWeights(learnRate);
-                    //error = 0 was moved to FeedForward()
                 }
             }
         }
@@ -133,7 +110,7 @@ namespace StrategyNeuralNetwork
             {
                 error += neurons[j].Error * neurons[j].Error;
             }
-            return Math.Sqrt(error / neurons.Length);
+            return error / neurons.Length;
         }
         public double GetSquareError(double[] target)
         {
