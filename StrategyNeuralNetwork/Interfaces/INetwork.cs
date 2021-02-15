@@ -10,9 +10,9 @@ namespace StrategyNeuralNetwork
     {
         int[] CountInLayers { get; }
         void SetInputs(double[] inputs);
-        void FeedForward();
+        void ProcessData();
         double[] GetOutputs();
-        double GetSquareError(double[] target);
         double Train(DataSet dataSet, double learnRate);
+        double GetSquareError(double[] target);
     }
 }

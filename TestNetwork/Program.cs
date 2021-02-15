@@ -11,12 +11,12 @@ namespace TestNetwork
             DataSet ds = new DataSet();
             ReadDataSetFromFile("iris1r.txt", ds, inputCount: 4, outputCount: 3);            
 
-            for (decimal learnRate = 0.5m; learnRate > 0; learnRate -= 0.05m)
+            for (decimal learnRate = 0.05m; learnRate > 0; learnRate -= 0.01m)
             {
                 INetwork perceptron = new Perceptron
                 (
                    inputsCount: 4,
-                   countInLayers: new int[] { 8 },
+                   countInLayers: new int[] { 12, 6 },
                    outputsCount: 3,
                    bias: true,
                    actFunc: ActivationFunctions.Sigmoid
@@ -53,10 +53,11 @@ namespace TestNetwork
         {
             Console.Clear();
             Console.WriteLine("Results");
+            int correctCount = 0, incorrectCount = 0;
             for (int i = 0; i < ds.dataSet.Length; i++)
             {
                 net.SetInputs(ds.dataSet[i].Inputs);
-                net.FeedForward();
+                net.ProcessData();
                 double[] results = net.GetOutputs();
 
                 string str = "";
@@ -65,10 +66,24 @@ namespace TestNetwork
                 foreach (double d in ds.dataSet[i].Outputs) { str += d.ToString("0.00") + " "; }
                 str += "\nOutputError: " + net.GetSquareError(ds.dataSet[i].Outputs).ToString("0.0000") + "\n";
 
+                if (MostValueIndex(results) == MostValueIndex(ds.dataSet[i].Outputs)) correctCount++;
+                else incorrectCount++;
+
                 Console.WriteLine(str);
             }
-            Console.WriteLine("Press any key to close...");
+            Console.WriteLine("Correct answers:   " + correctCount + "\nIncorrect answers: " + incorrectCount);
+            Console.WriteLine("\nPress any key to close...");
             Console.ReadKey();
+        }
+
+        public static int MostValueIndex(double[] array)
+        {
+            int index = 0;
+            for(int i = 1; i < array.Length; i++)
+            {
+                if (array[i] > array[index]) index = i;
+            }
+            return index;
         }
     }
 }

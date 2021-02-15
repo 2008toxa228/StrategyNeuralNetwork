@@ -45,7 +45,7 @@ namespace StrategyNeuralNetwork
                 Layers[0].Neurons[i].Value = inputs[i];
         }
 
-        public void FeedForward()
+        public void ProcessData()
         {
             for (int i = 0; i < Layers.Length; i++)
             {
@@ -95,7 +95,7 @@ namespace StrategyNeuralNetwork
             for (int i = 0; i < dataSet.dataSet.Length; i++)
             {
                 SetInputs(dataSet.dataSet[i].Inputs);
-                FeedForward();
+                ProcessData();
                 FindOutputError(dataSet.dataSet[i].Outputs);
                 BackPropagation(learnRate);
                 error += GetSquareError();
